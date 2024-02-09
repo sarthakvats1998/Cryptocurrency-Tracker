@@ -1,0 +1,13 @@
+.rate-increase {
+    color:#6cbb3c;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.rate-decrease {
+    color:#d92721;
+    font-weight: 600;
+}
+.table-font{
+    font-weight: 500;
+}
