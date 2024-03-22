@@ -5,7 +5,7 @@ import { faCaretDown, faCaretUp, faArrowTrendUp, faArrowTrendDown } from '@forta
 import { useNavigate } from 'react-router-dom';
 import '../Style/Cards.css';
 import { TechnicalAnalysis } from "react-ts-tradingview-widgets";
-import { Timeline } from "react-ts-tradingview-widgets";
+import '../Style/Cards.css';
 
 library.add(faCaretDown, faCaretUp, faArrowTrendUp, faArrowTrendDown);
 

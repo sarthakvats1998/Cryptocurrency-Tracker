@@ -9,6 +9,7 @@ import CompanyLogo from '../Assets/Logo.png';
 import { TickerTape } from "react-ts-tradingview-widgets";
 import { SocialIcon } from 'react-social-icons';
 import { useNavigate } from 'react-router-dom';
+import '../Style/TopNavbar.css'; // Import external CSS file
 
 function TopNavbar() {
   const navigate = useNavigate();
@@ -27,11 +28,11 @@ function TopNavbar() {
   };
 
     return (
-        <div style={{fontWeight:600}}>
+        <div className="top-navbar"> {/* Add class name for external CSS */}
           <TickerTape colorTheme="light" displayMode="adaptive" symbols={coinSymbols}/>
             <Navbar className='border' expand="lg" style={{height: 70}}>
               <Container fluid>
-                <Navbar.Brand href="/" style={{marginLeft:'10px'}}>
+                <Navbar.Brand href="/" className="navbar-brand"> {/* Add class name for external CSS */}
                   <img
                     src={CompanyLogo}
                     width="300"
@@ -42,12 +43,11 @@ function TopNavbar() {
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                   <Nav
-                    className="me-auto my-2 my-lg-0"
-                    style={{ maxHeight: '100px', marginLeft:'50px', fontSize:'18px' }}
+                    className="me-auto my-2 my-lg-0 navbar-links"
                     navbarScroll
                   >
                     <Nav.Link href="/" className='text-dark'>Home</Nav.Link>
-                    <NavDropdown title="Community" id="navbarScrollingDropdown" style={{marginLeft:'15px'}}>
+                    <NavDropdown title="Community" id="navbarScrollingDropdown" className="dropdown"> {/* Add class name for external CSS */}
                       <NavDropdown.Item href="https://x.com/Bitcoin">
                         <SocialIcon url="https://x.com/Bitcoin" style={{ height: 25, width: 25 }}/><span style={{marginLeft: '10px'}}>X</span>
                       </NavDropdown.Item>
@@ -58,7 +58,7 @@ function TopNavbar() {
                         <SocialIcon url="https://github.com/sarthakvats1998" style={{ height: 25, width: 25 }}/><span style={{marginLeft: '10px'}}>GitHub</span>
                       </NavDropdown.Item>
                     </NavDropdown>
-                    <NavDropdown title="More" id="navbarScrollingDropdown" style={{marginLeft:'15px'}}>
+                    <NavDropdown title="More" id="navbarScrollingDropdown" className="dropdown"> {/* Add class name for external CSS */}
                       <NavDropdown.Item href="/about">About Us</NavDropdown.Item>
                       <NavDropdown.Item href="/careers">
                         Careers

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons';
-import '../Style/CryptTable.css'; // Linking the external CSS file
+import '../Style/CryptTable.css';
 
 library.add(faCaretDown, faCaretUp);
 

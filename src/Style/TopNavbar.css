@@ -1,0 +1,17 @@
+.top-navbar {
+    font-weight: 600;
+}
+
+.navbar-brand img {
+    margin-left: 10px;
+}
+
+.navbar-links {
+    max-height: 100px;
+    margin-left: 50px;
+    font-size: 18px;
+}
+
+.dropdown {
+    margin-left: 15px;
+}
