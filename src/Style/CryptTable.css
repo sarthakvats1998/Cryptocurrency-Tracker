@@ -1,13 +1,41 @@
 .rate-increase {
-    color:#6cbb3c;
+    color: #6cbb3c;
     font-weight: 600;
     margin-left: 5px;
 }
 
 .rate-decrease {
-    color:#d92721;
+    color: #d92721;
     font-weight: 600;
+    margin-left: 5px;
 }
-.table-font{
+
+.table-font {
     font-weight: 500;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.table-margin-top {
+    margin-top: 15px;
+}
+
+.table-margin-top-double {
+    margin-top: 5px;
+}
+
+.image-size {
+    height: 25px;
+    width: 25px;
+}
+
+.symbol-color {
+    color: grey;
+    margin-left: 30px;
 }

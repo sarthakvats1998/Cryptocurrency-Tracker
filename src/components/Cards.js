@@ -73,7 +73,11 @@ function Cards(props) {
                         <ol>
                         {topThree.map(coin => <li key={coin.id} onClick={() => handleOnClick(coin)}>
                             <div style={{display:'flex', marginTop:'15px'}}>
-                            <div style={{width: '50%'}}><img src ={coin.image} style={{height: 20, width: 20}}/><span className='table-font' style={{marginLeft: '4px', fontSize: 15, marginTop: '5px'}}>{coin.name}</span>
+                            <div style={{ width: '50%', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }}>
+                                <img src={coin.image} style={{ height: 20, width: 20 }} />
+                                <span className='table-font' style={{ marginLeft: '4px', fontSize: 15, marginTop: '5px' }}>
+                                    {coin.name.length > 15 ? coin.name.slice(0, 11) + '...' : coin.name}
+                                </span>
                             <span style={{color:'grey', marginLeft: '14px'}}>{(coin.symbol).toUpperCase()}</span></div>
                             <span className={coin.price_change_percentage_24h_in_currency >= 0 ? 'rate-increase' : 'rate-decrease'} style={{textAlign:'right', width:'50%', marginRight:'10%'}}>
                             <FontAwesomeIcon icon={coin.price_change_percentage_24h_in_currency >= 0? 'caret-up':'caret-down'} style={{color:arrow_color(coin.price_change_percentage_24h_in_currency)}} />
@@ -86,7 +90,11 @@ function Cards(props) {
                         <ol>
                         {bottomThree.map(coin => <li key={coin.id} onClick={() => handleOnClick(coin)}>
                             <div style={{display:'flex', marginTop:'15px'}}>
-                            <div style={{width: '50%'}}><img src ={coin.image} style={{height: 20, width: 20}}/><span className='table-font' style={{marginLeft: '4px', fontSize: 15, marginTop: '5px'}}>{coin.name}</span>
+                            <div style={{width: '50%', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis'}}>
+                                <img src ={coin.image} style={{height: 20, width: 20}}/>
+                                <span className='table-font' style={{marginLeft: '4px', fontSize: 15, marginTop: '5px'}}>
+                                    {coin.name.length > 15 ? coin.name.slice(0, 11) + '...' : coin.name}
+                                </span>
                             <span style={{color:'grey', marginLeft: '14px'}}>{(coin.symbol).toUpperCase()}</span></div>
                             <span className={coin.price_change_percentage_24h_in_currency >= 0 ? 'rate-increase' : 'rate-decrease'} style={{textAlign:'right', width:'50%', marginRight:'10%'}}>
                             <FontAwesomeIcon icon={coin.price_change_percentage_24h_in_currency >= 0? 'caret-up':'caret-down'} style={{color:arrow_color(coin.price_change_percentage_24h_in_currency)}} />
