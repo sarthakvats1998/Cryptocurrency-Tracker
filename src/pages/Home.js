@@ -1,9 +1,47 @@
-import React from 'react';
+import React, { useEffect, useState, img } from 'react';
 import CryptTable from '../components/CryptTable';
 import Cards from '../components/Cards';
-import TopNavbar from '../components/TopNavbar';
 
 const CryptoDashboard = () =>{
+
+  const [sampleData, setSampleData] = useState([]);
+
+  useEffect(() => {
+    const coinsMarket = async() =>{
+        try{
+            const data = await fetch(
+                'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=true&price_change_percentage=1h%2C24h%2C7d&locale=en'
+            )
+
+            const result = await data.json();
+            //console.log(result)
+            setSampleData(result);   
+        }
+        catch(error){
+            console.log("Cant get data from the API",error.message);
+        }
+        
+    };
+
+    const interval = setInterval(() => {
+        coinsMarket();
+    }, 1000000);
+    coinsMarket();
+    
+
+}, []);
+
+    if(sampleData.length == 0){
+      return (
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+          {/* Replace 'Loading' with a loading circle or spinner */}
+          <div className="spinner-border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      );
+    }
+
     return(
       <div>
           <div className='container'>
@@ -17,56 +55,5 @@ const CryptoDashboard = () =>{
       </div>
     );
 }
-
-const sampleData = [
-    {
-      id: 'bitcoin',
-      symbol: 'btc',
-      name: 'Bitcoin',
-      current_price: 41145,
-      price_change_percentage_1h_in_currency: 1.5,
-      price_change_percentage_24h_in_currency: -2.7,
-      price_change_percentage_7d_in_currency: 5.2,
-      image: "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
-      market_cap: 800000000000,
-      circulating_supply: 18500000,
-      total_supply: 21000000,
-      sparkline_in_7d: {
-        price: [40000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000]
-      }
-    },
-    {
-      id: 'ethereum',
-      symbol: 'eth',
-      name: 'Ethereum',
-      current_price: 2500,
-      price_change_percentage_1h_in_currency: -0.5,
-      price_change_percentage_24h_in_currency: 1.8,
-      price_change_percentage_7d_in_currency: -8.9,
-      image: "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
-      market_cap: 300000000000,
-      circulating_supply: 116000000,
-      total_supply: 120000000,
-      sparkline_in_7d: {
-        price: [2400, 2450, 2500, 2550, 2600, 2550, 2600, 2650, 2700, 2750, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000]
-      }
-    },
-    {
-        id: 'ethereum',
-        symbol: 'eth',
-        name: 'Ethereum',
-        current_price: 2500,
-        price_change_percentage_1h_in_currency: -0.5,
-        price_change_percentage_24h_in_currency: 1.8,
-        price_change_percentage_7d_in_currency: -8.9,
-        image: "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
-        market_cap: 300000000000,
-        circulating_supply: 116000000,
-        total_supply: 120000000,
-        sparkline_in_7d: {
-          price: [2400, 2450, 2500, 2550, 2600, 2550, 2600, 2650, 2700, 2750, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000, 41000, 42000, 43000, 42000, 43000, 44000, 45000, 46000, 47000]
-        }
-      },
-  ];
 
 export default CryptoDashboard;

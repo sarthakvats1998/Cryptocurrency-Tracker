@@ -7,7 +7,6 @@ import CoinNews from "../components/CoinNews";
 
 const CoinDetails = () =>{
     const location = useLocation();
-    console.log("hellooooooooooo", location.state);
     const coin = location.state; 
     
     return(

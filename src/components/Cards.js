@@ -55,6 +55,10 @@ function Cards(props) {
         window.open(url, '_blank');
     }
 
+    if (!props.data || props.data.length === 0) {
+        return <div>Loading...</div>;
+      }
+
     return (
         <div style={{display: 'flex', justifyContent: 'space-between'}}>
             <div id="trendingCarousel" className="carousel slide rounded" data-bs-ride="carousel" style={{width: 410, height: 190, boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1)'}}>
